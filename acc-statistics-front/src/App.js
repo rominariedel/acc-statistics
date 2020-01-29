@@ -11,8 +11,7 @@ class App extends Component {
       .then(res => res.json())
       .then(statistics => {
         this.setState({
-          statistics: statistics,
-          selectedStatistics: statistics
+          statistics: statistics
         });
       });
   }
@@ -26,15 +25,21 @@ class App extends Component {
   }
 
   onStatisticSelect(statistic) {
-    // TODO: add statistic to selectedStatistics.
+    this.setState({
+      selectedStatistics: [...this.state.selectedStatistics, statistic]
+    });
+    console.log(this.state);
   }
 
   onStatisticDeselect(statistic) {
-    // TODO: remove statistic from selectedStatistics.
+    let newSelected = this.state.selectedStatistics.filter(
+      selectedStatistic => selectedStatistic !== statistic
+    );
+    this.setState({ selectedStatistics: newSelected });
   }
 
   isSelected(statistic) {
-    // TODO: check if statistic is included in selectedStatistics.
+    return this.state.selectedStatistics.includes(statistic);
   }
 
   render() {
@@ -43,9 +48,9 @@ class App extends Component {
         <h1>Acc Statistics</h1>
         <StatisticsChart selectedStatistics={this.showStatistics()} />
         <StatisticsTable
-          isSelected={this.isSelected}
-          onStatisticDeselect={this.onStatisticDeselect}
-          onStatisticSelect={this.onStatisticSelect}
+          isSelected={this.isSelected.bind(this)}
+          onStatisticDeselect={this.onStatisticDeselect.bind(this)}
+          onStatisticSelect={this.onStatisticSelect.bind(this)}
           selectedStatistics={this.state.selectedStatistics}
           statistics={this.state.statistics}
         />

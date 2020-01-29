@@ -29,7 +29,7 @@ function StatisticsTable({
               key={statistic.username}
               onStatisticDeselect={onStatisticDeselect}
               onStatisticSelect={onStatisticSelect}
-              selected={isSelected(statistic)}
+              isSelected={isSelected}
               statisticData={statistic}
             />
           );
