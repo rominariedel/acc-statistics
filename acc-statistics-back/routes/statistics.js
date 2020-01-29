@@ -22,7 +22,7 @@ const data = [
   },
   {
     username: "mas",
-    name: "M·s",
+    name: "Más",
     acc6: 112,
     "acc6%": 5.8,
     acc7: 13,
