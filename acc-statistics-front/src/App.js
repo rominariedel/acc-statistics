@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Statistic from "./models/Statistic";
 import StatisticsTable from "./components/StatisticsTable";
 import StatisticsChart from "./components/StatisticsChart";
 import "./App.css";
@@ -11,7 +12,8 @@ class App extends Component {
       .then(res => res.json())
       .then(statistics => {
         this.setState({
-          statistics: statistics
+          statistics: statistics.map(statistic => Statistic.fromAPI(statistic)),
+          selectedStatistics: []
         });
       });
   }
@@ -28,7 +30,6 @@ class App extends Component {
     this.setState({
       selectedStatistics: [...this.state.selectedStatistics, statistic]
     });
-    console.log(this.state);
   }
 
   onStatisticDeselect(statistic) {

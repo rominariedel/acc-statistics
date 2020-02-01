@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import Statistic from "../models/Statistic";
 import StatisticRow from "./StatisticRow";
 
 function StatisticsTable({
@@ -38,5 +40,14 @@ function StatisticsTable({
     </table>
   );
 }
+
+StatisticsTable.propTypes = {
+  isSelected: PropTypes.func.isRequired,
+  onStatisticDeselect: PropTypes.func.isRequired,
+  onStatisticSelect: PropTypes.func.isRequired,
+  selectedStatistics: PropTypes.arrayOf(PropTypes.instanceOf(Statistic))
+    .isRequired,
+  statistics: PropTypes.arrayOf(PropTypes.instanceOf(Statistic)).isRequired
+};
 
 export default StatisticsTable;

@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import Statistic from "../models/Statistic";
 import {
   BarChart,
   Bar,
@@ -28,5 +30,10 @@ function StatisticsChart({ selectedStatistics }) {
     </BarChart>
   );
 }
+
+StatisticsChart.propTypes = {
+  selectedStatistics: PropTypes.arrayOf(PropTypes.instanceOf(Statistic))
+    .isRequired
+};
 
 export default StatisticsChart;
