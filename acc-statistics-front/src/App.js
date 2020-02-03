@@ -6,7 +6,12 @@ import StatisticsChart from "./components/StatisticsChart";
 import "./App.css";
 
 class App extends Component {
-  state = { statistics: [], selectedStatistics: [] };
+  state = {
+    statistics: [],
+    selectedStatistics: [],
+    orderBy: "",
+    order: "desc"
+  };
 
   componentDidMount() {
     fetch("/statistics")
@@ -44,6 +49,11 @@ class App extends Component {
     return this.state.selectedStatistics.includes(statistic);
   }
 
+  handleRequestSort(_event, property) {
+    const isAsc = this.state.orderBy === property && this.state.order === "asc";
+    this.setState({ orderBy: property, order: isAsc ? "desc" : "asc" });
+  }
+
   render() {
     return (
       <div className="App">
@@ -55,6 +65,9 @@ class App extends Component {
           onStatisticSelect={this.onStatisticSelect.bind(this)}
           selectedStatistics={this.state.selectedStatistics}
           statistics={this.state.statistics}
+          orderBy={this.state.orderBy}
+          order={this.state.order}
+          handleRequestSort={this.handleRequestSort.bind(this)}
         />
         <StatisticsExporter selectedStatistics={this.showStatistics()} />
       </div>
