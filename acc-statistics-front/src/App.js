@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Statistic from "./models/Statistic";
+import StatisticsExporter from "./components/StatisticsExporter";
 import StatisticsTable from "./components/StatisticsTable";
 import StatisticsChart from "./components/StatisticsChart";
 import "./App.css";
@@ -55,6 +56,7 @@ class App extends Component {
           selectedStatistics={this.state.selectedStatistics}
           statistics={this.state.statistics}
         />
+        <StatisticsExporter selectedStatistics={this.showStatistics()} />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Statistic from "../models/Statistic";
+import statisticColumns from "../constants/StatisticColumns";
 import StatisticRow from "./StatisticRow";
 import Table from "@material-ui/core/Table";
 import TableCell from "@material-ui/core/TableCell";
@@ -22,14 +23,9 @@ function StatisticsTable({
         <TableHead>
           <TableRow>
             <TableCell padding="checkbox" />
-            <TableCell />
-            <TableCell>% de Tiempo Ac 6</TableCell>
-            <TableCell>Acc B6 Total Eff #</TableCell>
-            <TableCell>% de Tiempo Ac 7</TableCell>
-            <TableCell>Acc B7 Total Eff #</TableCell>
-            <TableCell>% de Tiempo Ac 8</TableCell>
-            <TableCell>Acc B8 Total Eff #</TableCell>
-            <TableCell>Promedio</TableCell>
+            {statisticColumns.map(column => {
+              return <TableCell>{column.displayName}</TableCell>;
+            })}
           </TableRow>
         </TableHead>
         <TableBody>
