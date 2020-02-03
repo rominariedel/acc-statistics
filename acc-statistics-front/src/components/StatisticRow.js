@@ -26,7 +26,9 @@ function StatisticsRow({
         <Checkbox checked={isSelected(statisticData)} />
       </TableCell>
       {statisticColumns.map(column => {
-        return <TableCell>{statisticData[column.id]}</TableCell>;
+        return (
+          <TableCell key={column.id}>{statisticData[column.id]}</TableCell>
+        );
       })}
     </TableRow>
   );

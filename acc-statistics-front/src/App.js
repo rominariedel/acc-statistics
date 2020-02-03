@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { AppContainer, DataContainer, DataElementContainer } from "./Styles";
 import Statistic from "./models/Statistic";
 import StatisticsExporter from "./components/StatisticsExporter";
 import StatisticsTable from "./components/StatisticsTable";
@@ -47,16 +48,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Acc Statistics</h1>
-        <StatisticsChart selectedStatistics={this.showStatistics()} />
-        <StatisticsTable
-          isSelected={this.isSelected.bind(this)}
-          onStatisticDeselect={this.onStatisticDeselect.bind(this)}
-          onStatisticSelect={this.onStatisticSelect.bind(this)}
-          selectedStatistics={this.state.selectedStatistics}
-          statistics={this.state.statistics}
-        />
-        <StatisticsExporter selectedStatistics={this.showStatistics()} />
+        <AppContainer>
+          <DataContainer>
+            <StatisticsExporter selectedStatistics={this.showStatistics()} />
+            <DataElementContainer>
+              <StatisticsChart selectedStatistics={this.showStatistics()} />
+            </DataElementContainer>
+            <DataElementContainer>
+              <StatisticsTable
+                isSelected={this.isSelected.bind(this)}
+                onStatisticDeselect={this.onStatisticDeselect.bind(this)}
+                onStatisticSelect={this.onStatisticSelect.bind(this)}
+                selectedStatistics={this.state.selectedStatistics}
+                statistics={this.state.statistics}
+              />
+            </DataElementContainer>
+          </DataContainer>
+        </AppContainer>
       </div>
     );
   }

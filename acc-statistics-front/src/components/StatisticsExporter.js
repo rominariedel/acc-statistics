@@ -1,17 +1,22 @@
 import React from "react";
 import CsvDownloader from "react-csv-downloader";
+import GetAppIcon from "@material-ui/icons/GetApp";
+import { DownloadCSV } from "../Styles";
 import PropTypes from "prop-types";
 import Statistic from "../models/Statistic";
 import statisticColumns from "../constants/StatisticColumns";
 
 function StatisticsExporter({ selectedStatistics }) {
   return (
-    <CsvDownloader
-      columns={statisticColumns}
-      filename="Statitics"
-      datas={selectedStatistics}
-      text="Exportar a CSV"
-    />
+    <DownloadCSV>
+      <CsvDownloader
+        columns={statisticColumns}
+        filename="Statitics"
+        datas={selectedStatistics}
+      >
+        <GetAppIcon />
+      </CsvDownloader>
+    </DownloadCSV>
   );
 }
 

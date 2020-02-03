@@ -24,9 +24,24 @@ function StatisticsChart({ selectedStatistics }) {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="bar1" fill="#244661" />
-      <Bar dataKey="bar2" fill="#80dbd2" />
-      <Bar dataKey="bar3" fill="#bb61b9" />
+      <Bar
+        dataKey="bar1"
+        name="Aceleración Baja Int"
+        legendType="square"
+        fill="#244661"
+      />
+      <Bar
+        dataKey="bar2"
+        name="Aceleración Media Int"
+        legendType="square"
+        fill="#80dbd2"
+      />
+      <Bar
+        dataKey="bar3"
+        name="Aceleración Alta Int"
+        legendType="square"
+        fill="#bb61b9"
+      />
     </BarChart>
   );
 }
