@@ -13,7 +13,7 @@
     "react-csv-downloader": "^1.5.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
-    "recharts": "^2.0.0-beta.1",
+    "recharts": "^2.1.14",
     "styled-components": "^5.0.0"
   },
   "scripts": {
